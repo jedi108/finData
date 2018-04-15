@@ -15,8 +15,8 @@ fig, ax = plt.subplots()
 candlestick2_ohlc(ax,quotes['OPEN'],quotes['HIGH'],quotes['LOW'],quotes['CLOSE'],width=0.6)
 
 xdate = date2num(pd.to_datetime(quotes['TRADEDATE']).tolist())
-
 xdate = quotes['TRADEDATE']
+
 print(xdate.head(10))
 # raise SystemExit(1)
 

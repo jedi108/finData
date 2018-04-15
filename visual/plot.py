@@ -6,6 +6,8 @@ from mpl_finance import candlestick2_ohlc
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import matplotlib.dates as mdates
+from matplotlib.dates import date2num, DayLocator, DateFormatter
+
 import datetime as datetime
 
 class PlotyChart():
@@ -34,12 +36,21 @@ class PlotyChart():
         self.fig = plt.figure()
         ax1 = plt.subplot2grid((6, 4), (1, 0), rowspan=4, colspan=4, axisbg='w')
 
-        xdate = [datetime.datetime.fromtimestamp(i) for i in self.df['TRADEDATE']]
+        # xdate = [datetime.datetime.fromtimestamp(i) for i in self.df['TRADEDATE']]
         ax1.xaxis.set_major_formatter(ticker.FuncFormatter(mydate))
+
+        xdate = date2num(pd.to_datetime(self.df['TRADEDATE']).tolist())
 
         candlestick2_ohlc(ax1,
                           self.df['OPEN'],self.df['HIGH'],self.df['LOW'],self.df['CLOSE'],width=0.6)
         ax1.grid(True)
+
+        ax1.minorticks_on()
+        ax1.xaxis.set_major_formatter(ticker.FuncFormatter(mydate))
+        ax1.xaxis.set_major_locator(DayLocator())
+
+        self.fig.autofmt_xdate()
+        self.fig.tight_layout()
 
         for label in ax1.xaxis.get_ticklabels():
             label.set_rotation(90)
@@ -125,7 +136,8 @@ class Bollingers:
                           width=1,
                           colorup='g',
                           colordown='r',
-                          alpha=0.75)
+                          alpha=0.75
+                          )
 
         ax.plot(time_range, df_sample[ROLLING_AVERAGE])
         ax.plot(time_range, df_sample[BOLLINGER_TOP])
