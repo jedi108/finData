@@ -6,8 +6,8 @@ import visual.plot
 from visual.plot import PlotyChart
 from visual.plot import Bollingers
 
-# Df = pd.read_csv('../BTC_USD.csv', sep=',')
-Df = pd.read_csv('../USD000UTSTOM.csv', sep=',')
+Df = pd.read_csv('../BTC_USD.csv', sep=',')
+# Df = pd.read_csv('../USD000UTSTOM.csv', sep=',')
 
 
 Df.LOW = Df.LOW.round(4)
@@ -23,8 +23,8 @@ print(miny)
 Df.info()
 # raise SystemExit(1)
 
-bollingers = Bollingers(Df, 2, 20)
-bollingers.visualise(50, 300)
+# bollingers = Bollingers(Df, 2, 20)
+# bollingers.visualise(50, 300)
 
 Pc = visual.plot.PlotyChart(Df)
 Pc.PlotCandle()

@@ -42,14 +42,14 @@ Df['vol-prev0'] = Df['VOLRUR'].shift(1)
 # ---------------------------------------------------------------
 # SAVE FOR PREDICT ----------------------------------------------
 
-Df['Y'] = np.where(Df['CLOSE'].shift(-1) > Df['CLOSE'],1,-1)
+# Df['Y'] = np.where(Df['CLOSE'].shift(-1) > Df['CLOSE'],1,-1)
 
-Df.dropna(axis = 0, how='any', inplace = True)
-Df = Df.drop(columns=['TRADEDATE', 'weightedAverage', 'VOLRUR1', 'Unnamed: 0'])
-print(Df.head(10))
-# Df.info()
-Df.to_csv('PREDICT_BTCETH.csv', header=False)
-raise SystemExit(1)
+# Df.dropna(axis = 0, how='any', inplace = True)
+# Df = Df.drop(columns=['TRADEDATE', 'weightedAverage', 'VOLRUR1', 'Unnamed: 0'])
+# print(Df.head(10))
+# # Df.info()
+# Df.to_csv('PREDICT_BTCETH.csv', header=False)
+# raise SystemExit(1)
 
 # SAVE FOR PREDICT ----------------------------------------------
 # ---------------------------------------------------------------

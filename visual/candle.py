@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 
 # quotes = pd.read_csv('USD000UTSTOM.csv', sep=',')
-quotes = pd.read_csv('BTC_USD.csv', sep=',')
+quotes = pd.read_csv('../../BTC_USD.csv', sep=',')
 # USD000UTSTOM.csv
 
 fig, ax = plt.subplots()

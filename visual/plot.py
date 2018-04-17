@@ -45,6 +45,10 @@ class PlotyChart():
                           self.df['OPEN'],self.df['HIGH'],self.df['LOW'],self.df['CLOSE'],width=0.6)
         ax1.grid(True)
 
+
+        for label in ax1.xaxis.get_ticklabels():
+            label.set_rotation(45)
+
         ax1.minorticks_on()
         ax1.xaxis.set_major_formatter(ticker.FuncFormatter(mydate))
         ax1.xaxis.set_major_locator(DayLocator())
@@ -52,11 +56,12 @@ class PlotyChart():
         self.fig.autofmt_xdate()
         self.fig.tight_layout()
 
-        for label in ax1.xaxis.get_ticklabels():
-            label.set_rotation(90)
+        # for label in ax1.xaxis.get_ticklabels():
+        #     label.set_rotation(90)
 
-        plt.subplots_adjust(left=.10, bottom=.19, right=.93, top=.95, wspace=.20, hspace=0)
-        plt.suptitle(' Stock Price')
+
+        # plt.subplots_adjust(left=.10, bottom=.19, right=.93, top=.95, wspace=.20, hspace=0)
+        # plt.suptitle(' Stock Price')
         plt.show()
 
 
